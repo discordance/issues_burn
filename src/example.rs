@@ -552,13 +552,14 @@ mod tests {
     // Import necessary items from the current module.
     use super::*;
     use burn::{backend::{wgpu::WgpuDevice, Autodiff, Wgpu}, tensor::Tensor};
+    use burn_ndarray::NdArray;
 
     /// Tests the forward pass of `SimpleModel` by verifying the output tensor shape.
     #[test]
     fn test_forward_pass_shape() {
-        type Backend = Wgpu<f32, i32>;
+        type Backend = NdArray<f32, i32>;
         type AutodiffBackend = Autodiff<Backend>;
-        let device = WgpuDevice::default();
+        let device = burn_ndarray::NdArrayDevice::default();
 
         // Define dimensions for the test.
         let batch: usize = 2;

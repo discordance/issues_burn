@@ -3,9 +3,9 @@ use burn::{backend::{wgpu::WgpuDevice, Autodiff, Wgpu}, optim::AdamConfig, tenso
 mod example;
 
 fn main() {
-    type Backend = Wgpu<f32, i32>;
+    type Backend = burn_ndarray::NdArray<f32, i32>;
     type AutodiffBackend = Autodiff<Backend>;
-    let device = WgpuDevice::default();
+    let device = burn_ndarray::NdArrayDevice::default();
     
     let artifact_dir = "/tmp/guide";
 
